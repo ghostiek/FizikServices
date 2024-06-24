@@ -1,0 +1,1 @@
+curl -X POST -d "@user_create_test.json" http://0.0.0.0:8000/users/ --header "Content-Type:application/json"
