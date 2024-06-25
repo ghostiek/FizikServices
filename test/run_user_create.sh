@@ -1,2 +1,2 @@
-curl -X POST -d "@user_create_test.json" http://0.0.0.0:8000/users/ --header "Content-Type:application/json"
+curl -X POST -d "@user_create_test.json" http://0.0.0.0:8000/users/create --header "Content-Type:application/json"
 curl -X POST -d "@food_log_test.json" http://0.0.0.0:8000/users/items/ --header "Content-Type:application/json"
