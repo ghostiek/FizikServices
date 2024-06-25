@@ -19,6 +19,7 @@ def get_db():
     finally:
         db.close()
 
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
@@ -30,6 +31,8 @@ def create_user(user: schemas.User, db: Session = Depends(get_db)):
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     return crud.create_user(db=db, user=user)
+
+
 #
 #
 # @app.get("/users/", response_model=list[schemas.User])
@@ -46,12 +49,11 @@ def create_user(user: schemas.User, db: Session = Depends(get_db)):
 #     return db_user
 #
 #
-# @app.post("/users/{user_id}/items/", response_model=schemas.Item)
-# def create_item_for_user(
-#     user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
-# ):
-#     return crud.create_user_item(db=db, item=item, user_id=user_id)
-#
+@app.post("/users/items/", response_model=schemas.FoodLog)
+def create_item_for_user(item: schemas.FoodLog, db: Session = Depends(get_db)
+):
+    return crud.create_food_log(db=db, item=item)
+
 #
 # @app.get("/items/", response_model=list[schemas.Item])
 # def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):

@@ -1,0 +1,7 @@
+{
+  "food_log_entry_id": 1,
+  "user_id": 1,
+  "food_id": 1,
+  "serving_size": "g",
+  "amount": 100
+}
