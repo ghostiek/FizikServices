@@ -9,10 +9,11 @@ class User(Base):
 
     user_id = Column(Integer, primary_key=True)
     username = Column(String, index=True)
-    password = Column(String)
+    hashed_password = Column(String)
     email = Column(String, unique=True, index=True)
     date_created = Column(DateTime)
     # items = relationship("Item", back_populates="owner")
+
 
 class FoodLog(Base):
     __tablename__ = "FoodLog"
@@ -25,4 +26,3 @@ class FoodLog(Base):
     date_created = Column(DateTime)
 
     # owner = relationship("Credentials", back_populates="user_id")
-
